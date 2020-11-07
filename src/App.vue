@@ -1,32 +1,116 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<div id="app">
+  <div id="menu">
+    <div id="brand">
+      <router-link to="/">
+        <h1>INSPO</h1>
+      </router-link>
     </div>
-    <router-view />
+    <div id="side">
+      <router-link to="/search">
+        <div class="menu-item browse">
+          <i class="fas fa-search"></i>
+          <p>Search</p>
+        </div>
+      </router-link>
+      <router-link to="/browse">
+        <div class="menu-item browse">
+          <i class="fas fa-globe"></i>
+          <p>Browse</p>
+        </div>
+      </router-link>
+      <router-link to="/hearted">
+        <div class="menu-item">
+          <i class="fas fa-heart"></i>
+          <span class="badge" id='num_hearts'>{{num_hearted}}</span>
+          <p>My Inspo</p>
+        </div>
+      </router-link>
+    </div>
   </div>
+  <router-view />
+</div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style>* {
+  box-sizing: border-box;
 }
 
-#nav {
-  padding: 30px;
+body {
+  margin: 50px 0;
+
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-template-areas: "none brand side";
+  margin-bottom: 50px;
+  box-shadow: 5px 10px grey;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+#menu a {
+  color: #B84901;
+  text-decoration: none;
+}
+
+#brand {
+  grid-area: brand;
+  display: flex;
+  justify-content: center;
+}
+
+#brand h1 {
+  font-size: 60px;
+}
+
+#side {
+  grid-area: side;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px 80px;
+}
+
+#side img {
+  width: 50px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+}
+
+.menu-item p {
+  margin: 5px;
+  font-size: 16pt;
+}
+
+.menu-item i {
+  font-size: 50px;
+}
+
+.browse {
+  margin-right: 50px;
+}
+
+@media screen and (max-width: 820px) {
+  #menu {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "brand""side";
+  }
+
+  #brand h1 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  #side {
+    justify-content: center;
+  }
 }
 </style>
