@@ -3,12 +3,12 @@
   <div id="menu">
     <div id="brand">
       <router-link to="/">
-        <h1>INSPO</h1>
+        <h1 id="logo">I N S P O</h1>
       </router-link>
     </div>
     <div id="side">
       <router-link to="/search">
-        <div class="menu-item browse">
+        <div class="menu-item browse" @click='clearSearch()'>
           <i class="fas fa-search"></i>
           <p>Search</p>
         </div>
@@ -23,7 +23,7 @@
         <div class="menu-item">
           <i class="fas fa-heart"></i>
           <span class="badge" id='num_hearts' v-if="hasNumHearted">{{num_hearted}}</span>
-          <p>My Inspo</p>
+          <p>My INSPO</p>
         </div>
       </router-link>
     </div>
@@ -41,12 +41,18 @@ export default {
     num_hearted() {
       return this.$root.$data.hearted.length;
     }
+  },
+  methods: {
+    clearSearch() {
+      this.$root.$data.searchedImages.length = 0;
+    }
   }
 }
 </script>
 
 <style>* {
   box-sizing: border-box;
+  font-family: 'Abel', sans-serif;
 }
 
 body {
@@ -66,6 +72,10 @@ body {
 #menu a {
   color: #B84901;
   text-decoration: none;
+}
+
+#logo {
+  font-family: 'Abel', sans-serif;
 }
 
 #brand {

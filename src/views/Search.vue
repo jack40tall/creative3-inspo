@@ -2,45 +2,63 @@
 <div>
   <div class="wrapper">
     <div class="search">
-      <form class="pure-form">
+      <form class="pure-form" v-on:submit.prevent="searchPhotos()">
         <i class="fas fa-search"></i><input v-model="searchText" />
       </form>
     </div>
   </div>
-  <div v-if="hasSearch"></div>
+  <div v-if="hasSearch">
+      <PhotoList :photos="searchedImages" />
+  </div>
   <div v-else class="empty-message">
       <p>Find your Inspiration</p>
   </div>
-  <PhotoList :photos="photos" />
 </div>
 </template>
 
 <script>
 import PhotoList from "../components/PhotoList.vue";
+
+const APIKEY = "19023503-87b010c566b4c2cdf0586d799";
+const URL = "https://pixabay.com/api/?key=" + APIKEY + "&orientation=horizontal&image_type=all&per_page=10&q=";
+
 export default {
-  name: 'Search',
-  components: {
-    PhotoList
-  },
+    name: 'Search',
+    components: {
+        PhotoList
+    },
     data() {
-    return {
-      searchText: '',
-    }
-  },
-  computed: {
-      hasSearch() {
-          if (this.$root.$data.searchedImages.length > 0) {
-              return true;
-          }
-          else {
-              return false;
-          }
-      },
-    photos() {
-      return this.$root.$data.popularImages;
-    }
-  },
-}
+        return {
+            searchText: '',
+        }
+    },
+    computed: {
+        hasSearch() {
+            if (this.$root.$data.searchedImages.length > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        searchedImages() {
+            console.log(this.$root.$data.searchedImages)
+            return this.$root.$data.searchedImages;
+        }
+    },
+    methods: {
+        async searchPhotos() {
+            this.$root.$data.searchedImages.length = 0;
+            // debugger
+            const response = await fetch(URL + this.searchText);
+            const photos = await response.json();
+
+            photos.hits.forEach(currPhoto => {
+                this.$root.$data.searchedImages.push({id:currPhoto.id, tags:currPhoto.tags, img:currPhoto.webformatURL, likes:currPhoto.likes, user:currPhoto.user})
+            })
+        },
+
+    },
+} 
 </script>
 
 <style scoped>

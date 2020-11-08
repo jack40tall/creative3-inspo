@@ -77,7 +77,7 @@ button {
 }
 
 button .empty-heart {display: none}
-button:hover .filled-heart {display: inline;}
+button:hover .empty-heart {display: inline;}
 button:hover .filled-heart {display: none;}
 
 
