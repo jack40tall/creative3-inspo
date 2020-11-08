@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Browse from "../views/Home.vue";
+import Browse from "../views/Browse.vue";
 import Search from "../views/Search.vue";
 import MyInspo from "../views/MyInspo.vue";
 

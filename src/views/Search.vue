@@ -11,6 +11,7 @@
   <div v-if="hasSearch">
       <PhotoList :photos="searchedImages" />
   </div>
+  <div v-else class="spacer"></div>
 </div>
 </template>
 
@@ -60,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+
+.spacer {
+  min-height: 80vh;;
+}
 .wrapper {
   display: flex;
   align-items: center;

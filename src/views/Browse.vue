@@ -1,6 +1,7 @@
 <template>
 <div>
   <PhotoList :photos="photos" />
+  <div class="spacer"></div>
 </div>
 </template>
 
@@ -22,3 +23,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.wrapper {
+  /* min-height: 100vh; */
+}
+.spacer {
+  min-height: 5vh;
+}
+</style>
