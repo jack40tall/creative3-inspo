@@ -13,7 +13,7 @@
           <p>Search</p>
         </div>
       </router-link>
-      <router-link to="/browse">
+      <router-link to="/">
         <div class="menu-item browse">
           <i class="fas fa-globe"></i>
           <p>Browse</p>

@@ -1,7 +1,7 @@
 const APIKEY = "19023503-87b010c566b4c2cdf0586d799"
 
 let randomPg = Math.random() % 10;
-const URL = "https://pixabay.com/api/?key=" + APIKEY + "&q=popular&image_type=all&page=" + randomPg;
+const URL = "https://pixabay.com/api/?key=" + APIKEY + "&q=popular&orientation=horizontal&image_type=all&per_page=120&page=" + randomPg;
 
 let photos = [];
 
@@ -15,7 +15,7 @@ async function getPhotos() {
 
 getPhotos().then(allPhotos => {
     allPhotos.hits.forEach(currPhoto => {
-        photos.push({id:currPhoto.id, tags:currPhoto.tags, webformatURL:currPhoto.webformatURL, likes:currPhoto.likes, user:currPhoto.user})
+        photos.push({id:currPhoto.id, tags:currPhoto.tags, img:currPhoto.webformatURL, likes:currPhoto.likes, user:currPhoto.user})
     })
 });
 
