@@ -7,7 +7,7 @@
 <script>
 import PhotoList from "../components/PhotoList.vue"
 export default {
-  name: 'Home',
+  name: 'Browse',
   components: {
     PhotoList
   },

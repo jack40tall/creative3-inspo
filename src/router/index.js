@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Browse from "../views/Home.vue";
 import Search from "../views/Search.vue";
 import MyInspo from "../views/MyInspo.vue";
 
@@ -8,12 +8,12 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home
+    path: "/browse",
+    name: "Browse",
+    component: Browse
   },
   {
-    path: "/search",
+    path: "/",
     name: "Search",
     component: Search
   },

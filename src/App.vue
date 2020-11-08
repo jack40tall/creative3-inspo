@@ -7,13 +7,13 @@
       </router-link>
     </div>
     <div id="side">
-      <router-link to="/search">
+      <router-link to="/">
         <div class="menu-item browse" @click='clearSearch()'>
           <i class="fas fa-search"></i>
           <p>Search</p>
         </div>
       </router-link>
-      <router-link to="/">
+      <router-link to="/browse">
         <div class="menu-item browse">
           <i class="fas fa-globe"></i>
           <p>Browse</p>
@@ -29,6 +29,11 @@
     </div>
   </div>
   <router-view />
+
+  <footer class="footer">
+    
+    <a href="https://github.com/jack40tall/creative3-inspo"><i class="fab fa-github"></i>   GitHub Repository</a>
+  </footer>
 </div>
 </template>
 
@@ -54,9 +59,32 @@ export default {
   box-sizing: border-box;
   font-family: 'Abel', sans-serif;
 }
+footer {
+  height: 60px;
+  background: grey;
+}
+.fa-github {
+  font-size: 22pt;
+  padding: 0 10px;
+}
+footer.footer a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 100%;
+  height: 100%;
+  color: white;
+  margin: 0;
+  font-size: 13pt;
+  text-decoration: none;
+}
+
+footer.footer a:hover {
+  color: black;
+}
 
 body {
-  margin: 50px 0;
+  margin-top: 10px;
 
 }
 
@@ -66,7 +94,7 @@ body {
   grid-column-gap: 5px;
   grid-template-areas: "none brand side";
   margin-bottom: 50px;
-  box-shadow: 5px 10px grey;
+  box-shadow: 0px 3px grey;
 }
 
 #menu a {
@@ -93,27 +121,23 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 0px 80px;
-}
-
-#side img {
-  width: 50px;
+  margin-right: 60px;
 }
 
 .menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100px;
+  width: 90px;
 }
 
 .menu-item p {
   margin: 5px;
-  font-size: 16pt;
+  font-size: 15pt;
 }
 
 .menu-item i {
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .browse {
@@ -132,6 +156,7 @@ body {
   background: red;
   color: white;
 }
+
 
 @media screen and (max-width: 820px) {
   #menu {

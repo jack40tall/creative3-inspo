@@ -1,5 +1,6 @@
 <template>
 <div>
+    <h2 id='banner-message'>Find your Inspiration</h2>
   <div class="wrapper">
     <div class="search">
       <form class="pure-form" v-on:submit.prevent="searchPhotos()">
@@ -9,9 +10,6 @@
   </div>
   <div v-if="hasSearch">
       <PhotoList :photos="searchedImages" />
-  </div>
-  <div v-else class="empty-message">
-      <p>Find your Inspiration</p>
   </div>
 </div>
 </template>
@@ -66,12 +64,18 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 36px;
 }
 
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 50%;
+}
+#banner-message {
+    width: 100%;
+    text-align: center;
+    margin: 130px 0 50px 0;
 }
 
 form {
@@ -94,10 +98,5 @@ input {
   height: 40px;
 }
 
-.empty-message {
-    max-width: 200px;
-    margin: auto;
-    margin-top: 100px;
-}
 
 </style>

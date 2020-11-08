@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h1> Your Favorites: </h1>
     <h3 v-if='emptyList'>Search or Browse to find your favorites!</h3>
     <InspoList v-else :photos="photos" />
@@ -31,8 +31,12 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+    min-height: 90vh;;
+}
 h1 {
-  
+    margin-left: 200px;
+    margin-top: 1vh;
 }
 h3 {
   width: 100%;
