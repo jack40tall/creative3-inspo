@@ -2,7 +2,7 @@
     <div class="wrapper">
         <div class="photos">
             <div class="photo" v-for="photo in photos" :key="photo.id">
-                <button @click='addToList(photo)'>
+                <button @click='removeFromList(photo)'>
                     <span class="filled-heart"><i class="fas fa-heart"></i></span>
                     <span class="empty-heart"><i class="far fa-heart"></i></span>
                 </button>
@@ -14,17 +14,18 @@
 
 <script>
 export default {
-  name: 'PhotoList',
+  name: 'InspoList',
   props: {
     photos: Array
   },
   computed: {
-
+      
   },
   methods: {
-      addToList(photo) {
-          this.$root.$data.hearted.push(photo);
-      }
+    removeFromList(photo) {
+      let index = this.$root.$data.hearted.indexOf(photo);
+      this.$root.$data.hearted.splice(index, 1);
+    },
   }
 }
 </script>
@@ -75,9 +76,9 @@ button {
     outline: none;
 }
 
-button .filled-heart {display: none}
+button .empty-heart {display: none}
 button:hover .filled-heart {display: inline;}
-button:hover .empty-heart {display: none;}
+button:hover .filled-heart {display: none;}
 
 
 

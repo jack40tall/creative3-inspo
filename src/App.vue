@@ -19,10 +19,10 @@
           <p>Browse</p>
         </div>
       </router-link>
-      <router-link to="/hearted">
+      <router-link to="/myInspo">
         <div class="menu-item">
           <i class="fas fa-heart"></i>
-          <span class="badge" id='num_hearts'>{{num_hearted}}</span>
+          <span class="badge" id='num_hearts' v-if="hasNumHearted">{{num_hearted}}</span>
           <p>My Inspo</p>
         </div>
       </router-link>
@@ -31,6 +31,19 @@
   <router-view />
 </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    hasNumHearted() {
+      return this.$root.$data.hearted.length > 0;
+    },
+    num_hearted() {
+      return this.$root.$data.hearted.length;
+    }
+  }
+}
+</script>
 
 <style>* {
   box-sizing: border-box;
@@ -95,6 +108,19 @@ body {
 
 .browse {
   margin-right: 50px;
+}
+
+.menu-item {
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
 }
 
 @media screen and (max-width: 820px) {
