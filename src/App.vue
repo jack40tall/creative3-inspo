@@ -128,16 +128,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90px;
+  width: 70px;
+  margin-top: 10px;;
 }
 
 .menu-item p {
   margin: 5px;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
 .menu-item i {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .browse {
