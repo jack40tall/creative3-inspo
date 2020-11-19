@@ -1,10 +1,8 @@
 # creative3-inspo
 
 ## Live Link
-Visit this link to see live:
-```
-inspo.travel-skedaddle.com
-```
+See my work in action here: See [INSPO](inspo.travel-skedaddle.com).
+
 
 ## Project setup
 ```
