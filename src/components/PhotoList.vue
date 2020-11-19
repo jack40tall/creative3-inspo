@@ -53,7 +53,7 @@ export default {
     margin: 20px 200px;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-around; */
+    justify-content: center;
 }
 
 .photo {
