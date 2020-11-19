@@ -2,9 +2,9 @@
     <div class="wrapper">
         <div class="photos">
             <div class="photo" v-for="photo in photos" :key="photo.id">
-                <button @click='addToList(photo)'>
-                    <span class="filled-heart"><i class="fas fa-heart"></i></span>
-                    <span class="empty-heart"><i class="far fa-heart"></i></span>
+                <button @click='toggleList(photo)'>
+                    <span v-if="isHearted(photo)" class="filled-heart"><i class="fas fa-heart"></i></span>
+                    <span v-else class="empty-heart"><i class="far fa-heart"></i></span>
                 </button>
                 <img :src="photo.img" alt="">
             </div>
@@ -22,9 +22,23 @@ export default {
 
   },
   methods: {
-      addToList(photo) {
-          this.$root.$data.hearted.push(photo);
-      }
+      toggleList(photo) {
+          if(this.$root.$data.hearted.includes(photo)) {
+              let index = this.$root.$data.hearted.indexOf(photo);
+              this.$root.$data.hearted.splice(index, 1);
+          }
+          else {
+              this.$root.$data.hearted.push(photo);
+          }
+      },
+      isHearted(photo) {
+        if(this.$root.$data.hearted.includes(photo)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+      },
   }
 }
 </script>
@@ -74,12 +88,5 @@ button {
     line-height: 50px;
     outline: none;
 }
-
-button .filled-heart {display: none}
-button:hover .filled-heart {display: inline;}
-button:hover .empty-heart {display: none;}
-
-
-
 
 </style>

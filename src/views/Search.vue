@@ -11,7 +11,9 @@
   <div v-if="hasSearch">
       <PhotoList :photos="searchedImages" />
   </div>
-  <div v-else class="spacer"></div>
+  <div v-else class="spacer">
+    <p id="prompt">Type a keyword to find images for your INSPO</p>
+  </div>
 </div>
 </template>
 
@@ -92,6 +94,11 @@ i {
   display: table-cell;
   padding-left: 10px;
   width: 1px;
+}
+
+#prompt {
+  width: 100%;
+  text-align: center;
 }
 
 input {
