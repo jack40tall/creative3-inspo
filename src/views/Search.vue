@@ -74,10 +74,15 @@ export default {
   margin-bottom: 36px;
 }
 
+.fas.fa-search {
+  line-height: 40px;
+}
+
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 50%;
+  padding: 1px;
 }
 #banner-message {
     width: 100%;
@@ -108,6 +113,7 @@ input {
   box-shadow: none !important;
   width: 100%;
   height: 40px;
+  margin-bottom: -15px !important;
 }
 
 

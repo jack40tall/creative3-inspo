@@ -5,6 +5,7 @@
                 <button @click='toggleList(photo)'>
                     <span v-if="isHearted(photo)" class="filled-heart"><i class="fas fa-heart"></i></span>
                     <span v-else class="empty-heart"><i class="far fa-heart"></i></span>
+                    <span class="hover-filled-heart"><i class="fas fa-heart"></i></span>
                 </button>
                 <img :src="photo.img" alt="">
             </div>
@@ -89,4 +90,29 @@ button {
     outline: none;
 }
 
+.hover-filled-heart {
+    position: absolute;
+    left: 8.5px;
+    font-size: 38px;
+    font-size: 38px;
+    display: none;
+}
+
+@media screen and (max-width: 499px) {
+
+    .photo {
+        height: 225px;
+        width: 375px;
+    }
+    .photo img {
+        /* border: 2px solid #333; */
+        max-height: 225px;
+        max-width: 375px;
+    }
+}
+
+/* Diable hover on mobile */
+@media screen and (min-width: 1025px) {
+    button:hover .hover-filled-heart {display: inline;}
+}
 </style>

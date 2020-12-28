@@ -147,6 +147,7 @@ body {
 
 .menu-item {
   position: relative;
+  width: 70px;
 }
 .badge {
   position: absolute;
@@ -166,13 +167,22 @@ body {
     grid-template-areas: "brand""side";
   }
 
+  #side {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    margin:auto;
+  }
+
+  .menu-item {
+    margin-right: 0px;
+    /* border: 1px solid black; */
+  }
+
   #brand h1 {
     margin-top: 0px;
     margin-bottom: 10px;
-  }
-
-  #side {
-    justify-content: center;
   }
 }
 </style>

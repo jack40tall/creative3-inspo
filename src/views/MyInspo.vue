@@ -44,4 +44,12 @@ h3 {
   margin-top: 100px;
 }
 
+@media screen and (max-width: 1000px) {
+
+  h1 {
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
 </style>

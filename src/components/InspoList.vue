@@ -77,10 +77,26 @@ button {
 }
 
 button .empty-heart {display: none}
-button:hover .empty-heart {display: inline;}
-button:hover .filled-heart {display: none;}
 
+@media screen and (max-width: 499px) {
 
+    .photo {
+        height: 225px;
+        width: 375px;
+    }
+
+    .photo img {
+        /* border: 2px solid #333; */
+        height: 225px;
+        width: 375px;
+    }
+}
+
+/* Diable hover on mobile */
+@media screen and (min-width: 1025px) {
+    button:hover .empty-heart {display: inline;}
+    button:hover .filled-heart {display: none;}
+}
 
 
 </style>
